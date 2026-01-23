@@ -1,0 +1,144 @@
+*{
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+#container{
+    width: 1140px;
+    margin: auto;
+}
+
+#header{
+    height: 200px;
+    display: flex;
+    
+}
+
+#header > div:nth-child(1){
+    flex-basis: 15%;
+}
+
+#header > div:nth-child(2){
+    flex-basis: 70%;
+}
+#header > div:nth-child(3){
+    flex-basis: 15%;
+}
+
+#header > div:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header > div:nth-child(1) > img{
+    width: 120px;
+}
+
+#header > div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#query{
+    width: 500px;
+    padding: 10px;
+    font-weight: bold;
+    border: 2px solid #455ba8;
+    border-radius: 5px;
+}
+
+#banner{
+    display: flex;
+    height: 40px
+    
+}
+
+.banner1{
+    display: flex;
+    flex-basis: 15%;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.banner2{
+    display: flex;
+    flex-basis: 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner3{
+    display: flex;
+    flex-basis: 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner4{
+    display: flex;
+    flex-basis: 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner5{
+    display: flex;
+    flex-basis: 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+#banner01:hover{
+    background-color: #455ba8;
+    color: white;
+    border-radius: 5px;
+}
+
+#banner02:hover{
+    background-color: #455ba8;
+    color: white;
+    border-radius: 5px;
+}
+
+#banner03:hover{
+    background-color: #455ba8;
+    color: white;
+    border-radius: 5px;
+}
+
+#banner04:hover{
+    background-color: #455ba8;
+    color: white;
+    border-radius: 5px;
+}
+
+#banner05:hover{
+    background-color: #455ba8;
+    color: white;
+    border-radius: 5px;
+}
+
+#main{
+    display: flex;
+    height: 600px;
+    
+}
+
+.main1{
+    flex-basis: 70%;
+    
+}
+
+.main2{
+    flex-basis: 30%;
+}
+
+#query2{
+    
+}
+
+
+    

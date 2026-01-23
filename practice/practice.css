@@ -1,5 +1,57 @@
 #container1.highlight{
     background-color: yellow;
 }
+#container2 p{
+    color: pink;
+}
 
-#
+#container2 > p{
+    color: red;
+}
+
+#container3 > input:not(input[type=submit]){
+    border: 1px solid blue;
+}
+
+#container4 > h1 , #container4 > .title{
+    color: green;
+    font-size: 20px;
+}
+
+div[class^=user] {
+    background-color: lightgray;
+}
+
+div[class$=info]{
+    color: red;
+}
+
+div[class~=product]{
+    background-color: coral;
+}
+
+div[class|=admin]{
+    background-color: greenyellow;
+}
+
+#container6 > input:focus{
+    background-color: yellow;
+}
+
+#container6 > input:hover{
+    background-color: green;
+}
+
+#container7 >li:nth-of-type(2){
+    font-weight: bold;
+}
+.container8 > p:only-of-type{
+    color: blue;
+}
+#container9 > p[title*=important]:not(p[title*=not-important]){
+    background-color: red;
+}
+
+#menu > .active{
+    color: red;
+}
