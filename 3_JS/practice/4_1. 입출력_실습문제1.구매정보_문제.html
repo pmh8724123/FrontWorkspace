@@ -5,39 +5,50 @@
 <title>실습문제 1</title>
 <style type="text/css">
 #area {
-	width: 400px;
-	height: 150px;
-	background: #ffff99;
-	border: 1px solid #6666ff;
+    width: 400px;
+    height: 150px;
+    background: #FFFF99;
+    border: 1px solid #6666FF;
 }
 </style>
 </head>
 <body>
-	<h2>@실습문제 1</h2>
-	<label>구매자 : </label>
-	<input type="text" placeholder="구매자의 이름을 입력하세요.">
-	<br>
-	<br>
-	<label>상품명 : </label>
-	<input type="text" id="pname" placeholder="구매 상품명을 입력하세요">
-	<br>
-	<br>
-	<label>가격 : </label>
-	<input type="text" name="price" placeholder="구매 가격을 입력하세요.">만원
-	<br>
-	<br>
-	<button onclick="printValue();">입력값 출력하기</button>
-	<br>
-	<br>
-	<div id="area"></div>
-	<script type="text/javascript">
-		function printValue() {
-			var buyer = document.querySelectorAll("input[type=text]");
-			var pname = document.querySelector('#pname');
-			console.log(pname.textContent);
-			console.log(buyer);
-			
-		}
-	</script>
+    <h2>@실습문제 1</h2>
+    <label>구매자 : </label>
+    <input type="text" placeholder="구매자의 이름을 입력하세요.">
+    <br>
+    <br>
+    <label>상품명 : </label>
+    <input type="text" id="pname" placeholder="구매 상품명을 입력하세요">
+    <br>
+    <br>
+    <label>가격 : </label>
+    <input type="text" name="price" placeholder="구매 가격을 입력하세요.">만원
+    <br>
+    <br>
+    <button onclick="printValue();">입력값 출력하기</button>
+    <br>
+    <br>
+    <div id="area"></div>
+    <script type="text/javascript">
+        function printValue() {
+            // var inputs = document.querySelectorAll("input[type=text]");
+            // var buyer = inputs[0].value;
+            // var pname = inputs[1].value;
+            // // var price = inputs[2].value;
+            // var area = document.querySelector("#area");
+            // area.innerHTML = "구입자 : " + buyer + "님<br>" + "구입상품 : " + pname + "<br>구매가격 : " + price + "만원"
+			var customer = document.querySelector("input[placeholder ='구매자의 이름을 입력하세요.']");
+			var pname = document.querySelector("#pname");
+			var price = document.querySelector("input[name=price]");
+
+			// 내가 선택한 요소의 입력값을 얻어오려면?
+			var result = "구입자 : " + customer.value + "님<br>" + "구입상품 : " + pname.value + "<br>구매가격 : " + price.value + "만원";
+
+			area.innerHTML = result;
+
+
+        }
+    </script>
 </body>
 </html>
