@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 3px solid #000;
+            background: tomato;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .boxx {
+            border: 1px solid #000;
+            padding: 20px;
+        }
+
+        .box1 {
+            background-color: yellowgreen;
+        }
+
+        .box2 {
+            background-color: green;
+        }
+
+        .box3 {
+            background-color: springgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Event</h1>
+    <h2>Event Handler Binding</h2>
+    <input type="button" value="inline event속성" onclick="test1();" onmouseover="test1();">
+    <input type="button" value="event속성 지정" id="btn2">
+    <input type="button" value="addEventListener" id="btn3">
+
+    <script>
+        function test1() {
+            console.log('클릭 이벤트 발생');
+        }
+
+        document.querySelector("#btn2").onclick = function () {
+            console.log("btn2 클릭!");
+        }
+
+        document.querySelector("#btn3").addEventListener("click", function () {
+            console.log("btn3 클릭!!!")
+        })
+
+        document.querySelector("#btn3").addEventListener("click", function () {
+            console.log("btn3 클릭!!!2")
+        })
+    </script>
+
+    <h2>Event | Event Target</h2>
+    <div class="box" onclick="test2(event)"></div>
+
+    <script>
+        /* 
+            Event 객체
+             - 발생한 모든 이벤트와 관련된 정보를 가지고 있는 객체
+             - 이벤트가 발생한 요소나, 이벤트의 유형, 위치정보 등을 보관
+             - 이벤트 발생시 자바스크립트에서 이벤트 핸들러함수의 인자로 event가 항상 전달된다.
+            
+            Event Target객체
+             - 이벤트가 발생한 요소
+             
+        */
+        document.querySelector(".box").onmouseover = function (e) {
+            console.log(e);
+            console.log(e.target);
+            console.log(this);
+            // 이벤트 핸들러함수 내부에서 this는 항상 event target을 가리킨다.
+            this.innerHTML = "안녕";
+        };
+
+        document.querySelector(".box").onmouseout = function (e) {
+            e.target.innerHTML = "잘가";
+        };
+    </script>
+
+    <h2>keyEvent</h2>
+    <input type="text" id="userInput">
+    <div class="text-wrapper"></div>
+
+    <script>
+        /* 
+            keydown - keypress - keyup(제일 많이사용)
+        */
+        document.querySelector("#userInput").addEventListener('keyup', function (e) {
+            document.querySelector(".text-wrapper").innerHTML = this.value;
+        });
+    </script>
+
+    <h2>Submit Event</h2>
+    <form action="">
+        <fieldset>
+            <legend>로그인</legend>
+            <table>
+                <tr>
+                    <th>
+                        <label for="userId">아이디</label>
+                    </th>
+                    <td>
+                        <input type="text" name="userId" id="userId">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="pwd">비밀번호</label>
+                    </th>
+                    <td>
+                        <input type="password" name="pwd" id="pwd">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="submit" value="로그인">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+    <script>
+        document.querySelector("form").onsubmit = function (e) {
+            // 사용자 입력값에 대한 유효성 검사
+            // 1. 아이디
+            //  - 글자수가 4글자 이상인 경우만 아이디로 허용
+            if (userId.value.length < 4) {
+                alert("유효한 아이디를 입력하세요!!");
+                userId.select();
+                // 각 태그가 가지고 있는 기본이벤트 호출을 막는 방법
+                // ex) form -> submit, a -> click
+                // 1. return false; 
+                // 2. e.preventDefault();
+
+                //return false;
+                e.preventDefault();
+            }
+
+            // 2. 비밀번호
+            //  - 비밀번호가 8글자 이상인 경우만 허용
+            if (pwd.value.lenght < 8) {
+                alert("유효한 비번을 입력하세요!");
+                pwd.focus();
+                // return false;
+                e.preventDefault();
+            }
+        };
+    </script>
+
+    <h2>Event Propagation - Bubbling</h2>
+    <!-- 
+        이벤트 버블링
+         - 요소에 이벤트 핸들러가 작동하면 이어서 부모요소의 핸들러,
+           또 그 부모의 핸들러로 계속해서 이벤트가 전파되는 행위를 의미한다.
+    -->
+    <!-- .boxx.box$[data-text=box$]*3 -->
+    <div class="boxx box1" data-text="box1" onclick="displayMsg(event, this)">
+        <div class="boxx box2" data-text="box2" onclick="displayMsg(event, this)">
+            <div class="boxx box3" data-text="box3" onclick="displayMsg(event, this)"></div>
+        </div>
+    </div>
+
+    <script>
+        function displayMsg(e, boxx){
+            console.log(boxx.dataset.text);
+
+            // 이벤트 버블링을 막기위한 메서드
+            e.stopPropagation
+        }
+    </script>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>

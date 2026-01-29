@@ -17,8 +17,14 @@
 	<button onclick="addFunc();">실행</button>
 	<script>
 		function mkAddFunc (){
-
-		} 
+			var sum = 0;
+			return function (){
+				if(isNaN(myadder.value)) return;
+				sum += Number(myadder.value);
+				alert(sum);
+			}
+			
+		}
 
 		var addFunc = mkAddFunc();
 	</script>

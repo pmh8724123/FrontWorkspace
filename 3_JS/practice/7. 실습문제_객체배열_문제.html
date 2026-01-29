@@ -24,9 +24,14 @@
   function test1(){
     //1.객체배열 생성 및 요소추가
     var students = [];
+    students.push(new Student("김동현",90,56,56,44,34))
+    students.push(new Student("유관순",76,44,22,35,58))
+    students.push(new Student("임꺽정",55,88,66,12,77))
 
     //2.반복문을 통해 객체배열 순회. 요소별 toString메소드 호출하기
-
+    for(var student of students){
+      console.log(student.toString());
+    }
     /* 
       출력결과 : 
       이름=김동현, java=90, oracle=56, html5=56, css3=44, javascript=34, 총점=280, 평점=56
@@ -38,6 +43,40 @@
   /**
    * Student 선언 (class 방식, 생성자 함수방식 아무거나)   
    */ 
+  class Student{
+    constructor(name, java, oracle, html5, css3, javascript){
+      this.name = name;
+      this.java = java;
+      this.oracle = oracle;
+      this.html5 = html5;
+      this.css3 = css3;
+      this.javascript = javascript;
+    }
+
+    getSum(){
+      return this.html5 + 
+      this.java + 
+      this.oracle + 
+      this.html5 +
+      this.css3 +
+      this.javascript;
+    }
+
+    getAvg(){
+      return Math.floor(this.getSum / 5 * 10) / 10;
+    }
+
+    toString(){
+      return "이름=" + this.name + 
+      ", java=" + this.java + 
+      ", oracle=" + this.oracle +
+      ", html5=" + this.html5 +
+      ", css3=" + this.css3 +
+      ", javascript=" + this.javascript
+    }
+
+
+  }
 
   </script>
 
