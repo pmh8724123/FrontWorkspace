@@ -35,6 +35,22 @@
     <button type="button" data-url='https://www.w3schools.com'>와삼</button>
   </div>
   <script>
+    document.querySelector("#btn-generate").onclick = function(e){
+      var btns = document.querySelectorAll('.btn-wrapper > button');
+
+      for(var button of btns){
+        var btn = document.createElement("button"); // <button></button>
+        btn.innerText = button.innerText;
+        btn.dataset.url = button.dataset.url
+        btn.onclick = function(e){
+          location.assign(this.dataset.url);
+        }
+
+        document.querySelector(".btn-wrapper").appendChild(btn);
+
+
+      }
+    };
   
   </script>
 
