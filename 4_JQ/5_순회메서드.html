@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>순회메서드</title>
     <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
     <style>
         .wrap,
@@ -85,7 +85,7 @@
          - 선택된 요소의 모든 후손요소들 중 선택자와 일치하는 요소만을 선택
     </pre>
 
-    <script>
+    <!-- <script>
         $(function(){
             // 앞으로 부여할 스타일 객체
             var style1 = {color:"red", border:"2px solid red"};
@@ -105,6 +105,46 @@
             $(".wrap").find("li").css(style4);
             $(".wrap").find("span").css(style5);
         })
+    </script> -->
+
+    <h3>동위 레벨 순회 메서드
+        - 같은 레벨에 있는 요소들을 선택할 수 있는 메서드
+    </h3>
+
+    <div class="wrap">
+        <p>p</p>
+        <span>span</span>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <p>p</p>
+    </div>
+
+    <script>
+        $(function(){
+            var style1 = {color:"red", border:"2px solid red"};
+            var style2 = {color:"blue", border:"2px solid blue"};
+            var style3 = {color:"yellow", border:"2px solid yellow"};
+            var style4 = {backgroundColor:"aqua", color:"pink"};
+
+            // siblings
+            // - 선택된 요소와 같은 레벨에 있는 모든 요소를 선택하는 메서드
+            // - 매개변수로 선택자 제시시, 같은레벨의 요소중 선택자와 일치하는 요소만 선택한다.
+            $("h2").siblings().css(style1);
+            $("h2").siblings("p").css(style2);
+
+            // next()
+            //  - 선택된 요소와 같은 레벨에 있는 요소들 중 바로 다음 요소를 선택
+            $("h2").next().css(style3);
+            $("h2").nextAll().css(style4);
+            $("h2").nextUntil("p").css("font-size","3em");
+
+            // prev()
+            //  - 선택된 요소와 같은 레벨에 있는 요소들 중 바로 이전요소 선택
+            $("h2").prev().css("background","pink");
+            $("h2").prevAll().css(style4);
+            $("h2").prevUntil().css(style3);
+        });
+
     </script>
 
 
