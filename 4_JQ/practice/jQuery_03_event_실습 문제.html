@@ -10,10 +10,15 @@
 </head>
 <body>
     <h2>Event 1</h2>
-    event1번은 내가 선택한 select박스의 값이 우측에 출력되어야합니다. <br>
-
     <script>
-        
+        $(function(){
+            $("select[name=number]").change(function(){
+                //var selected = $(this).val();
+                if(!$(this).val()) return;
+                var selected = $("select[name=number] option:selected").text();
+                $("#selNum").html(selected);
+            });
+        })
     </script>
     
     <select name="number">
@@ -25,15 +30,23 @@
     </select>
     <span id="selNum"></span>
 
+
     <hr>
 
     <h2>Event 2</h2>
     <script>
-    
+        $(function(){
+            $("#event2 tr").not(":first").on("click",function(e){
+                var $tds = $(this).children();
+                
+                $tds.each(function(index, td){
+                    $("#s"+(index+1)).text( $(td).text() );
+                })
+            });
+        })
     </script>
     
     <table id="event2" border="1">
-        event2번은 제목행을 제외한 1,2,3번행 클릭시 선택한 행의 정보가 하단에 출력되어야합니다.
         <tr><th>번호</th><th>제목</th><th>조회수</th><th>작성일자</th></tr>
         <tr><td>3</td><td>3번제목</td><td>0</td><td>11-07-13</td></tr>
         <tr><td>2</td><td>2번제목</td><td>0</td><td>11-07-12</td></tr>
@@ -48,9 +61,18 @@
     <hr>
     
     <h2>Event 3</h2>
-    event3번은 2번과 동일하나 선택한 행의 css만 변경되어야 합니다
     <script>
-    
+        $(function(){
+            $("#event3 tr").not(":first").on("click",function(e){
+                var $tds = $(this).children();
+                $(this).siblings().css('background','');
+                $(this).css('background','red');
+
+                $tds.each(function(index, td){
+                    $("#s"+(index+5)).text( $(td).text() );
+                })
+            });
+        })
     </script>
 
     <table id="event3" border="1">
@@ -66,5 +88,3 @@
         <span id="s8"></span>
 </body>
 </html>
-
-
