@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹페이지 구현 실습문제</title>
+</head>
+
+<style>
+    
+    /* 공용 스타일 작성 시작*/
+    #container {
+        width: 1140px;
+        margin: auto;
+    }
+
+    /* 공용 스타일 작성 끝*/
+
+    /* Header 스타일 작성 시작*/
+    #header {
+        height: 130px;
+        background-color: rgba(0, 0, 250, 0.849)
+    }
+
+    #header>div:nth-child(1) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    #header>div:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #text0101 {
+        border-radius: 5px;
+        border: solid white 1px;
+    }
+
+    #text0202 {
+        border-radius: 5px;
+        border: 0;
+        margin-left: 10px;
+        background-color: rgb(94, 93, 93);
+        color: white;
+    }
+
+    /* Header 스타일 작성 끝*/
+
+    /* 상품 스타일 작성 시작*/
+    #content {
+        height: 800px;
+        display: flex;
+        border: solid 1px red;
+    }
+
+    #content>div:nth-child(1) {
+        flex-basis: 70%;
+    }
+
+    #content>div:nth-child(2) {
+        flex-basis: 30%;
+    }
+
+    .box {
+        align-content: center;
+        display: flex;
+        padding: 50px;
+    }
+
+    .div-1 {
+        border: solid 1px;
+    }
+
+    .box div:first-child {
+        justify-content: center;
+        align-content: center;
+    }
+
+    #book1 {
+        border: solid 1px gray;
+        justify-items: center;
+        padding-bottom: 10px;
+    }
+
+    #book1 div:nth-child(1) {
+
+        padding-bottom: 10px;
+    }
+
+    /* 상품 스타일 작성 끝*/
+
+    /* 장바구니 스타일 작성 시작*/
+    #jang01 div:nth-child(1) {
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    #jang01 div:nth-child(2) {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    #jang01 {
+        border: solid 1px gray;
+        background-color: rgb(255, 247, 237);
+        height: 80%;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 5%;
+    }
+
+    /* 장바구니 스타일 작성 끝*/
+
+    /* 푸터 스타일 작성 시작*/
+    #footer {
+        height: 100px;
+        width: 1140px;
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        background-color: rgb(43, 42, 40);
+        color: white;
+    }
+
+    /* 푸터 스타일 작성 끝*/
+</style>
+
+<body>
+
+    <div id="container">
+        <div id="header">
+            <div>
+                <h1>KH Shopping Mall</h1>
+            </div>
+            <div><input id="text0101" type="text" placeholder="상품명 검색" size="80">
+                <input id="text0202" type="button" value="검색">
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="box">
+                <div>상품목록</div>
+
+                <div class="row-4">
+                    <div id="book1">
+                        <div><img class="div-1" src="/Front시험자료/Front시험자료/resources/images/java.jpg"></div>
+                        <div>Do it ! 자바프로그래밍 입문</div>
+                        <div>15500원</div>
+                        <input type="button" value="장바구니담기">
+                    </div>
+
+                    <div id="book2">
+                        <div><img class="div-1" src="/Front시험자료/Front시험자료/resources/images/jsp.jpg"></div>
+                        <div>Do it ! 자바프로그래밍 입문</div>
+                        <div>15500원</div>
+                        <input type="button" value="장바구니담기">
+                    </div>
+                </div>
+                <div class="row-4">
+                    <div id="book3">
+                        <div><img class="div-1" src="/Front시험자료/Front시험자료/resources/images/oracle.jpg"></div>
+                        <div>Do it ! 자바프로그래밍 입문</div>
+                        <div>15500원</div>
+                        <input type="button" value="장바구니담기">
+                    </div>
+
+                    <div id="book4">
+                        <div><img class="div-1" src="/Front시험자료/Front시험자료/resources/images/react200.PNG" width="200">
+                        </div>
+                        <div>Do it ! 자바프로그래밍 입문</div>
+                        <div>15500원</div>
+                        <input type="button" value="장바구니담기">
+                    </div>
+                </div>
+                <div class="row-4">
+                    <div id="book5">
+                        <div><img class="div-1" src="/Front시험자료/Front시험자료/resources/images/react.jpg"></div>
+                        <div>Do it ! 자바프로그래밍 입문</div>
+                        <div>15500원</div>
+                        <input type="button" value="장바구니담기">
+                    </div>
+
+                    <div id="book6">
+                        <div><img class="div-1" src="/Front시험자료/Front시험자료/resources/images/js.png"></div>
+                        <div>Do it ! 자바프로그래밍 입문</div>
+                        <div>15500원</div>
+                        <input type="button" value="장바구니담기">
+                    </div>
+                </div>
+                <div class="row-4">
+                    <div id="book7">
+                        <div><img class="div-1" src="/Front시험자료/Front시험자료/resources/images/html.jpg"></div>
+                        <div>Do it ! 자바프로그래밍 입문</div>
+                        <div>15500원</div>
+                        <input type="button" value="장바구니담기">
+                    </div>
+
+                    <div id="book8">
+                        <div><img class="div-1" src="/Front시험자료/Front시험자료/resources/images/node.png"></div>
+                        <div>Do it ! 자바프로그래밍 입문</div>
+                        <div>15500원</div>
+                        <input type="button" value="장바구니담기">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div>
+                <div id="jang01">
+                    <div>장바구니</div>
+                    <div>Total: 0원</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="footer">
+        <p>&copy; 2024 KH Shopping Mall. All rights reserved.</p>
+    </div>
+
+
+
+
+</body>
+
+</html>
